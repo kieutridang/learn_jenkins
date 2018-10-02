@@ -1,7 +1,7 @@
 pipeline {
   agent {
     docker {
-      image 'node'
+      image 'node:6.3'
     }
 
   }
@@ -15,6 +15,7 @@ pipeline {
     stage('Build') {
       steps {
         sh '''sh \'npm --version\'
+sh \'npm install\'
 sh \'npm run build\''''
       }
     }
