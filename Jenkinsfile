@@ -14,9 +14,9 @@ pipeline {
     }
     stage('Build') {
       steps {
-        sh '''sh \'npm --version\'
-sh \'npm install\'
-sh \'npm run build\''''
+        sh '''npm --version
+npm install
+npm run build'''
       }
     }
     stage('Stage 3') {
