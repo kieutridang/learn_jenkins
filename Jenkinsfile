@@ -13,12 +13,6 @@ pipeline {
       }
     }
     stage('Build') {
-      agent {
-        docker {
-          image 'node:6.3'
-        }
-
-      }
       environment {
         HOME = '.'
       }
