@@ -18,8 +18,7 @@ pipeline {
       }
       steps {
         sh '''npm --version
-npm install
-npm run build'''
+echo "code to build here"'''
       }
     }
     stage('Stage 3') {
