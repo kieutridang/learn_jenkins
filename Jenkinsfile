@@ -18,6 +18,7 @@ pipeline {
       }
       steps {
         sh '''npm --version
+pwd
 echo "code to build here"
 npm install'''
       }
