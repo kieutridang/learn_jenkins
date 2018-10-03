@@ -21,7 +21,7 @@ pipeline {
 pwd
 ls
 yarn cache clear
-yarn --network-timeout=999999
+yarn install --network-timeout 1000000
 echo "code to build here"
 '''
       }
