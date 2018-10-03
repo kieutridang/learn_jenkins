@@ -22,11 +22,16 @@ pipeline {
       }
     }
     stage ('Code analyse') {
-      sh '''echo "Run some lints"'''
+      steps {
+        sh '''echo "Run some lints"'''
+      }
     }
     stage ('Unit test') {
-      sh 'echo "Tests will back"'
-}
+      steps {
+        sh 'echo "Tests will back"'
+      }
+     
+    }
     stage('Build') {
       environment {
         HOME = '.'
