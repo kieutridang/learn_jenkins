@@ -7,9 +7,18 @@ pipeline {
   }
   stages {
     stage('Stage 1') {
-      steps {
-        echo 'New pull request'
-        slackSend(message: 'there is a new pull request', baseUrl: 'https://avengers-freelancer.slack.com/services/hooks/jenkins-ci/', token: 'Pidi8OGP4Axa8UhqLAPIUFNI')
+      parallel {
+        stage('Stage 1') {
+          steps {
+            echo 'New pull request'
+            slackSend(message: 'there is a new pull request', baseUrl: 'https://avengers-freelancer.slack.com/services/hooks/jenkins-ci/', token: 'Pidi8OGP4Axa8UhqLAPIUFNI')
+          }
+        }
+        stage('') {
+          steps {
+            sh 'npm install'
+          }
+        }
       }
     }
     stage('Build') {
