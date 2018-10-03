@@ -18,9 +18,9 @@ pipeline {
       }
       steps {
         sh '''npm --version
+node --version
 pwd
 ls
-yarn cache clear
 yarn install --network-timeout 1000000
 echo "code to build here"
 '''
