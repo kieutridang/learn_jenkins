@@ -20,7 +20,7 @@ pipeline {
         sh '''npm --version
 pwd
 ls
-yarn
+yarn cache clear
 echo "code to build here"
 '''
       }
