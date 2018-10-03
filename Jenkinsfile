@@ -12,21 +12,32 @@ pipeline {
         slackSend(message: 'there is a new pull request', baseUrl: 'https://avengers-freelancer.slack.com/services/hooks/jenkins-ci/', token: 'Pidi8OGP4Axa8UhqLAPIUFNI')
       }
     }
+    stage('Prepare environment') {
+      steps {
+        sh '''
+          npm --version
+          node --version
+          yarn install --network-timeout 1000000
+        '''
+      }
+    }
+    stage ('Code analyse') {
+      sh '''echo "Run some lints"'''
+    }
+    stage ('Unit test') {
+      sh 'echo "Tests will back"'
+}
     stage('Build') {
       environment {
         HOME = '.'
       }
       steps {
-        sh '''npm --version
-node --version
-pwd
-ls
-yarn install --network-timeout 1000000
-echo "code to build here"
-'''
+        sh '''
+          npm run build
+        '''
       }
     }
-    stage('Stage 3') {
+    stage('Final') {
       steps {
         echo 'build done'
       }
