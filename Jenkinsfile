@@ -21,6 +21,7 @@ pipeline {
 pwd
 ls
 yarn cache clear
+yarn
 echo "code to build here"
 '''
       }
