@@ -1,7 +1,7 @@
 pipeline {
   agent {
     docker {
-      image 'node:latest'
+      image 'node:10:11.0'
     }
 
   }
@@ -21,7 +21,7 @@ pipeline {
 pwd
 ls
 yarn cache clear
-yarn
+yarn --network-timeout=999999
 echo "code to build here"
 '''
       }
