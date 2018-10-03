@@ -19,6 +19,7 @@ pipeline {
       steps {
         sh '''npm --version
 pwd
+ls
 echo "code to build here"
 '''
       }
