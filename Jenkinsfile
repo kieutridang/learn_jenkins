@@ -9,7 +9,7 @@ pipeline {
     stage('Notify') {
       steps {
         echo 'New pull request'
-        slackSend(message: 'Build Started: ${env.JOB_NAME} ${env.BUILD_NUMBER}', baseUrl: 'https://avengers-freelancer.slack.com/services/hooks/jenkins-ci/', token: 'Pidi8OGP4Axa8UhqLAPIUFNI')
+        slackSend(message: 'NEW PR', baseUrl: 'https://avengers-freelancer.slack.com/services/hooks/jenkins-ci/', token: 'Pidi8OGP4Axa8UhqLAPIUFNI')
       }
     }
     stage('Prepare environment') {
@@ -52,4 +52,11 @@ pipeline {
       }
     }
   }
+  post {
+    success {
+      slackSend(message: 'SUCCESS', baseUrl: 'https://avengers-freelancer.slack.com/services/hooks/jenkins-ci/', token: 'Pidi8OGP4Axa8UhqLAPIUFNI')
+    }
+    failure {
+      slackSend(message: 'FAILURE', baseUrl: 'https://avengers-freelancer.slack.com/services/hooks/jenkins-ci/', token: 'Pidi8OGP4Axa8UhqLAPIUFNI')
+    }
 }
