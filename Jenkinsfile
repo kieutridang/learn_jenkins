@@ -9,7 +9,7 @@ pipeline {
     stage('Notify') {
       steps {
         echo 'New pull request'
-        slackSend(message: 'there is a new pull request', baseUrl: 'https://avengers-freelancer.slack.com/services/hooks/jenkins-ci/', token: 'Pidi8OGP4Axa8UhqLAPIUFNI')
+        slackSend(message: 'Build Started: ${env.JOB_NAME} ${env.BUILD_NUMBER}', baseUrl: 'https://avengers-freelancer.slack.com/services/hooks/jenkins-ci/', token: 'Pidi8OGP4Axa8UhqLAPIUFNI')
       }
     }
     stage('Prepare environment') {
@@ -21,16 +21,15 @@ pipeline {
         '''
       }
     }
-    stage ('Code analyse') {
+    stage('Code analyse') {
       steps {
-        sh '''echo "Run some lints"'''
+        sh 'echo "Run some lints"'
       }
     }
-    stage ('Unit test') {
+    stage('Unit test') {
       steps {
         sh 'echo "Tests will back"'
       }
-     
     }
     stage('Build') {
       environment {
