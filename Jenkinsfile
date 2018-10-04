@@ -17,7 +17,7 @@ pipeline {
         sh '''
           npm --version
           node --version
-          npm install --network-timeout 1000000
+          yarn install --network-timeout 1000000
         '''
       }
     }
