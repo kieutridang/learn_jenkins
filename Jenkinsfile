@@ -41,6 +41,14 @@ pipeline {
         '''
       }
     }
+    stage('Deploy for master') {
+        when {
+            branch 'master'  
+        }
+        steps {
+            sh 'echo "This is master and will be deployed"'
+        }
+    }
     stage('Final') {
       steps {
         echo 'build done'
