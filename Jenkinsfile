@@ -59,4 +59,5 @@ pipeline {
     failure {
       slackSend(message: 'FAILURE', baseUrl: 'https://avengers-freelancer.slack.com/services/hooks/jenkins-ci/', token: 'Pidi8OGP4Axa8UhqLAPIUFNI')
     }
+  }
 }
