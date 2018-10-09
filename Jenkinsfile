@@ -39,11 +39,20 @@ pipeline {
       }
     }
     stage('Deploy for master') {
-      when {
-        branch 'master'
-      }
-      steps {
-        sh 'echo "This is master and will be deployed"'
+      parallel {
+        stage('Deploy for master') {
+          when {
+            branch 'master'
+          }
+          steps {
+            sh 'echo "This is master and will be deployed"'
+          }
+        }
+        stage('') {
+          steps {
+            sh 'ssh nnmhuy@178.128.102.71 mkdir -p ../WebProjects/new-folder'
+          }
+        }
       }
     }
     stage('Final') {
@@ -55,9 +64,13 @@ pipeline {
   post {
     success {
       slackSend(message: 'SUCCESS', baseUrl: 'https://avengers-freelancer.slack.com/services/hooks/jenkins-ci/', token: 'Pidi8OGP4Axa8UhqLAPIUFNI')
+
     }
+
     failure {
       slackSend(message: 'FAILURE', baseUrl: 'https://avengers-freelancer.slack.com/services/hooks/jenkins-ci/', token: 'Pidi8OGP4Axa8UhqLAPIUFNI')
+
     }
+
   }
 }
