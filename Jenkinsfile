@@ -50,7 +50,7 @@ pipeline {
         }
         stage('') {
           steps {
-            sh 'ssh nnmhuy@178.128.102.71 mkdir -p ../WebProjects/new-folder'
+            sh 'ssh root@178.128.102.71 mkdir -p ../WebProjects/new-folder'
           }
         }
       }
