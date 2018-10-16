@@ -48,9 +48,9 @@ pipeline {
             sh 'echo "This is master and will be deployed"'
           }
         }
-        stage('') {
+        stage('error') {
           steps {
-            sh 'ssh root@178.128.102.71 mkdir -p ../WebProjects/new-folder'
+            sh 'yarn start'
           }
         }
       }
