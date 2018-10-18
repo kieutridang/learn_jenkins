@@ -43,7 +43,8 @@ echo "build here"
         branch 'master'
       }
       steps {
-        sh 'echo "This is master and will be deployed"'
+        sh '''echo "This is master and will be deployed"
+pwd'''
       }
     }
     stage('Final') {
