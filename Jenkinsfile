@@ -17,7 +17,8 @@ pipeline {
         sh '''
           npm --version
           node --version
-          yarn install --network-timeout 1000000
+          //yarn install --network-timeout 1000000
+echo "install here"
         '''
       }
     }
@@ -34,25 +35,17 @@ pipeline {
     stage('Build') {
       steps {
         sh '''
-          npm run build
+          //npm run build
+echo "build here"
         '''
       }
     }
     stage('Deploy for master') {
-      parallel {
-        stage('Deploy for master') {
-          when {
-            branch 'master'
-          }
-          steps {
-            sh 'echo "This is master and will be deployed"'
-          }
-        }
-        stage('error') {
-          steps {
-            sh 'yarn start'
-          }
-        }
+      when {
+        branch 'master'
+      }
+      steps {
+        sh 'echo "This is master and will be deployed"'
       }
     }
     stage('Final') {
