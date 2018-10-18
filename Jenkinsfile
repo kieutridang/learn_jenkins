@@ -44,6 +44,13 @@ echo "build here"
       }
       steps {
         sh '''echo "This is master and will be deployed"
+pwd
+cd ..
+cd ..
+cd ..
+cd ..
+cd ..
+cd ./WebProjects/learn_jenkins
 pwd'''
       }
     }
