@@ -17,7 +17,6 @@ pipeline {
         sh '''
           npm --version
           node --version
-          //yarn install --network-timeout 1000000
 echo "install here"
         '''
       }
@@ -35,7 +34,6 @@ echo "install here"
     stage('Build') {
       steps {
         sh '''
-          //npm run build
 echo "build here"
         '''
       }
